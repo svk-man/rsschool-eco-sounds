@@ -33,6 +33,7 @@ body {
 .container {
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .main,
@@ -48,6 +49,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logo {
+  width: 70px;
+  height: 50px;
+  background-image: url('./assets/svg/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(25%) sepia(77%) saturate(804%) hue-rotate(2deg) brightness(106%) contrast(107%);
+  transition: .3s;
+}
+
+.logo:hover {
+  filter: none;
 }
 
 .nav__list {
