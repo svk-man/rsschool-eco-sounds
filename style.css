@@ -8,6 +8,8 @@
 
 /*--------------- common start ---------------*/
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -17,8 +19,6 @@
 
 body {
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -34,11 +34,6 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-.main {
-  min-height: 100px;
-  border: 1px solid blue;
 }
 /*--------------- common end ---------------*/
 
@@ -65,7 +60,6 @@ body {
 }
 
 .nav__list {
-  margin: 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -84,6 +78,59 @@ body {
   color: white;
 }
 /*--------------- header end ---------------*/
+
+/*--------------- main start ---------------*/
+.main {
+  background: url("./assets/img/nightingale-bg.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.main__container {
+  height: calc(100vh - 160px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bird {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 35px;
+}
+
+.bird__img {
+  max-width: 400px;
+  border: 10px solid var(--main-color);
+}
+
+.bird__inner {
+  text-align: center;
+}
+
+.bird__caption {
+  margin-bottom: 35px;
+  font-size: 70px;
+  line-height: 80px;
+  text-transform: uppercase;
+}
+
+.bird__play-button {
+  width: 120px;
+  height: 120px;
+  background-image: url(./assets/svg/play.svg);
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0;
+  filter: invert(25%) sepia(77%) saturate(804%) hue-rotate(2deg) brightness(106%) contrast(107%);
+  transition: .3s;
+}
+
+.bird__play-button:hover {
+  filter: none;
+  cursor: pointer;
+}
+/*--------------- main end ---------------*/
 
 /*--------------- footer start ---------------*/
 .footer__container {
