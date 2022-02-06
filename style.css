@@ -8,12 +8,16 @@
 
 /*--------------- common start ---------------*/
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: 'Oswald';
   font-weight: 500;
   font-size: 30px;
