@@ -51,7 +51,7 @@ function playBirdSound() {
   birdPlayButton.classList.add('hidden');
   birdPauseButton.classList.remove('hidden');
   const birdNameEn = birdPlayButton.dataset.birdName;
-  const src = `../assets/audio/${birdNameEn}.mp3`;
+  const src = `./assets/audio/${birdNameEn}.mp3`;
   playAudio(src);
 }
 
@@ -60,3 +60,5 @@ function pauseBirdSound() {
   birdPlayButton.classList.remove('hidden');
   pauseAudio();
 }
+
+startYtya();
