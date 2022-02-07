@@ -35,6 +35,10 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+.hidden {
+  display: none !important;
+}
 /*--------------- common end ---------------*/
 
 /*--------------- header start ---------------*/
@@ -99,11 +103,13 @@ body {
 }
 
 .bird__img {
-  max-width: 400px;
+  width: 400px;
+  height: 305px;
   border: 10px solid var(--main-color);
 }
 
 .bird__inner {
+  width: 400px;
   text-align: center;
 }
 
@@ -112,12 +118,13 @@ body {
   font-size: 70px;
   line-height: 80px;
   text-transform: uppercase;
+  color: var(--main-color);
 }
 
-.bird__play-button {
+.bird__play-button,
+.bird__pause-button {
   width: 120px;
   height: 120px;
-  background-image: url(./assets/svg/play.svg);
   background-size: contain;
   background-color: transparent;
   background-repeat: no-repeat;
@@ -126,9 +133,18 @@ body {
   transition: .3s;
 }
 
-.bird__play-button:hover {
+.bird__play-button:hover,
+.bird__pause-button:hover {
   filter: none;
   cursor: pointer;
+}
+
+.bird__play-button {
+  background-image: url(./assets/svg/play.svg);
+}
+
+.bird__pause-button {
+  background-image: url(./assets/svg/pause.svg);
 }
 /*--------------- main end ---------------*/
 

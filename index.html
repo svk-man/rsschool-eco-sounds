@@ -14,11 +14,11 @@
       <a class="header__logo logo" href="#"></a>
       <nav class="header__nav nav">
         <ul class="nav__list">
-          <li class="nav__item"><a href="#" class="nav__link">Соловей</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Дрозд</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Малиновка</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Жаворонок</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Славка</a></li>
+          <li class="nav__item"><a href="#" class="nav__link" data-bird-name="nightingale">Соловей</a></li>
+          <li class="nav__item"><a href="#" class="nav__link" data-bird-name="thrush">Дрозд</a></li>
+          <li class="nav__item"><a href="#" class="nav__link" data-bird-name="robin">Малиновка</a></li>
+          <li class="nav__item"><a href="#" class="nav__link" data-bird-name="lark">Жаворонок</a></li>
+          <li class="nav__item"><a href="#" class="nav__link" data-bird-name="whitethroat">Славка</a></li>
         </ul>
       </nav>
     </div>
@@ -29,7 +29,8 @@
         <img class="bird__img" src="./assets/img/nightingale.jpg" alt="Соловей">
         <div class="bird__inner">
           <figcaption class="bird__caption">Соловей</figcaption>
-          <button class="bird__play-button"></button>
+          <button class="bird__play-button" data-bird-name="nightingale"></button>
+          <button class="bird__pause-button hidden"></button>
         </div>
       </figure>
     </div>
@@ -44,6 +45,6 @@
       <a class="footer__rss-logo" href="https://rs.school/js-stage0/" target="_blank"></a>
     </div>
   </footer>
-  <script src="index.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </body>
 </html>
