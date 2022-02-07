@@ -4,8 +4,8 @@ const ytyaLink = document.querySelector('.ytya--link');
 ytyaLink.addEventListener('click', danceYtya);
 
 const YTYA_SRC = {
-  'HELLO': '../assets/video/sticker-hello.webm',
-  'BYE': '../assets/video/sticker-bye.webm',
+  'HELLO': './assets/video/sticker-hello.webm',
+  'BYE': './assets/video/sticker-bye.webm',
 };
 
 const main = document.querySelector('.main');
@@ -37,7 +37,7 @@ function danceYtya() {
   birdPlayButton.classList.remove('hidden');
   pauseAudio();
   
-  ytyaAudio.src = `../assets/music/track${soundCount % 5}.mp3`;
+  ytyaAudio.src = `./assets/music/track${soundCount % 5}.mp3`;
 
   ytyaLink.src.includes('bye') ? ytyaAudio.play() : ytyaAudio.pause();
 
