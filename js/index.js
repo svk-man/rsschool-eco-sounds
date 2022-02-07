@@ -8,6 +8,20 @@ const main = document.querySelector('.main');
 const nav = document.querySelector('.nav');
 nav.addEventListener('click', changeBirdInfo);
 
+const hamburger = document.querySelector('.hamburger');
+
+hamburger.addEventListener('click', function() {
+  this.classList.toggle('hamburger--active');
+  nav.classList.toggle('nav--show');
+});
+
+nav.addEventListener('click', function(event) {
+  if (event.target.classList.contains('nav__link')) {
+    hamburger.classList.remove('hamburger--active');
+    nav.classList.remove('nav--show');
+  }
+});
+
 const birdImg = document.querySelector('.bird__img');
 const birdCaption = document.querySelector('.bird__caption');
 const birdPlayButton = document.querySelector('.bird__play-button');
