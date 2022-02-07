@@ -1,4 +1,7 @@
+import { preloadImages } from "./images.js";
 import { playAudio, pauseAudio } from "./audio.js";
+
+preloadImages();
 
 const main = document.querySelector('.main');
 
