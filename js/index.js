@@ -1,5 +1,6 @@
 import { preloadImages } from "./images.js";
 import { playAudio, pauseAudio } from "./audio.js";
+import { startYtya } from "./ytya.js";
 
 preloadImages();
 

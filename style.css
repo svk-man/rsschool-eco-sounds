@@ -370,8 +370,8 @@ body {
 
 @media (max-width: 360px) {
   .footer__rss-logo {
-    width: 90px;
-    height: 35px;
+    width: 80px;
+    height: 30px;
   }
 }
 
@@ -379,3 +379,19 @@ body {
   filter: none;
 }
 /*--------------- footer end ---------------*/
+
+/*--------------- ytya start ---------------*/
+.ytya--link {
+  height: 60px;
+}
+
+.ytya--link:hover {
+  cursor: pointer;
+}
+
+.ytya {
+  width: 235px;
+  align-self: flex-end;
+  transform: translate(40px, -95px);
+}
+/*--------------- ytya end ---------------*/
