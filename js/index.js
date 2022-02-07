@@ -60,3 +60,5 @@ function pauseBirdSound() {
   birdPlayButton.classList.remove('hidden');
   pauseAudio();
 }
+
+startYtya();

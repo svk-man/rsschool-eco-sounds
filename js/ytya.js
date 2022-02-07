@@ -36,7 +36,7 @@ function danceYtya() {
   birdPauseButton.classList.add('hidden');
   birdPlayButton.classList.remove('hidden');
   pauseAudio();
-  
+
   ytyaAudio.src = `./assets/music/track${soundCount % 5}.mp3`;
 
   ytyaLink.src.includes('bye') ? ytyaAudio.play() : ytyaAudio.pause();
@@ -46,10 +46,10 @@ function danceYtya() {
       bgCount++;
       main.style.backgroundImage = `url("./assets/img/${birdNames[bgCount % birdNames.length]}-bg.jpg")`;
     }, 2000 );
-   } else {
+  } else {
     clearInterval(timerId);
     bgCount = 0;
     soundCount++;
     main.style.backgroundImage = `url("./assets/img/${birdPlayButton.dataset.birdName}-bg.jpg")`;
-   }
+  }
 }
