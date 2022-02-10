@@ -128,8 +128,13 @@ body {
   transition: .5s;
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.nav__link--active {
   color: white;
+}
+
+.nav__link--hidden-active {
+  color: var(--main-color);
 }
 
 @media (max-width: 920px) {

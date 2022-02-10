@@ -1,55 +1,75 @@
 import { pauseAudio } from "./audio.js";
+import { NAV_LINK_ACTIVE_CLASS, NAV_LINK_HIDDEN_ACTIVE_CLASS } from "./navigation.js";
 
-const ytyaLink = document.querySelector('.ytya--link');
-ytyaLink.addEventListener('click', danceYtya);
+const YTYA_UI_ELEMENTS = {
+  'YTYA': document.querySelector('.ytya'),
+  'LINK': document.querySelector('.ytya--link'),
+};
+
+YTYA_UI_ELEMENTS.LINK.addEventListener('click', danceYtya);
 
 const YTYA_SRC = {
   'HELLO': './assets/video/sticker-hello.webm',
   'BYE': './assets/video/sticker-bye.webm',
-};
-
-const main = document.querySelector('.main');
-const bird = document.querySelector('.bird');
-const birdNames = ['lark', 'nightingale', 'robin', 'thrush', 'whitethroat'];
-
-const ytya = document.querySelector('.ytya');
-
-export function startYtya() {
-  ytyaLink.play();
-  ytya.play();
 }
 
 const ytyaAudio = new Audio();
 ytyaAudio.loop = true;
-let timerId = null;
+
+const BIRD_UI_ELEMENTS = {
+  'BIRD': document.querySelector('.bird'),
+  'PLAY_BUTTON': document.querySelector('.bird__play-button'),
+  'PAUSE_BUTTON': document.querySelector('.bird__pause-button'),
+}
+
+const BIRD_NAMES = ['lark', 'nightingale', 'robin', 'thrush', 'whitethroat'];
+
+const main = document.querySelector('.main');
+
+export function startYtya() {
+  YTYA_UI_ELEMENTS.LINK.play();
+  YTYA_UI_ELEMENTS.YTYA.play();
+}
+
+let timerId;
 let bgCount = 0;
-let soundCount = 0;
+let audioCount = 0;
+let activeNavLink;
 
 function danceYtya() {
-  bird.classList.toggle('hidden');
-
-  ytyaLink.src = (ytyaLink.src.includes('bye') ? YTYA_SRC.HELLO : YTYA_SRC.BYE);
-  ytya.classList.toggle('hidden');
-
-  const birdPlayButton = document.querySelector('.bird__play-button');
-  const birdPauseButton = document.querySelector('.bird__pause-button');
-  birdPauseButton.classList.add('hidden');
-  birdPlayButton.classList.remove('hidden');
   pauseAudio();
+  toggleHidingUIElements();
+  ytyaAudio.src = getAudioSrc();
+  activeNavLink = document.querySelector(`.${NAV_LINK_ACTIVE_CLASS}`);
+  activeNavLink.classList.toggle(NAV_LINK_HIDDEN_ACTIVE_CLASS);
 
-  ytyaAudio.src = `./assets/music/track${soundCount % 5}.mp3`;
-
-  ytyaLink.src.includes('bye') ? ytyaAudio.play() : ytyaAudio.pause();
-
-  if (ytyaLink.src.includes('bye')) {
+  const isYtyaNotDance = !YTYA_UI_ELEMENTS.LINK.src.includes('bye');
+  if (isYtyaNotDance) {
+    YTYA_UI_ELEMENTS.LINK.src = YTYA_SRC.BYE;
+    ytyaAudio.play();
     timerId = setInterval(() => {
       bgCount++;
-      main.style.backgroundImage = `url("./assets/img/${birdNames[bgCount % birdNames.length]}-bg.jpg")`;
+      const birdName = BIRD_NAMES[bgCount % BIRD_NAMES.length];
+      main.style.backgroundImage = `url("./assets/img/${birdName}-bg.jpg")`;
     }, 2000 );
   } else {
+    YTYA_UI_ELEMENTS.LINK.src = YTYA_SRC.HELLO;
+    ytyaAudio.pause();
     clearInterval(timerId);
     bgCount = 0;
-    soundCount++;
-    main.style.backgroundImage = `url("./assets/img/${birdPlayButton.dataset.birdName}-bg.jpg")`;
+    audioCount++;
+    const birdName = BIRD_UI_ELEMENTS.PLAY_BUTTON.dataset.birdName;
+    main.style.backgroundImage = `url("./assets/img/${birdName}-bg.jpg")`;
   }
+}
+
+function toggleHidingUIElements() {
+  BIRD_UI_ELEMENTS.BIRD.classList.toggle('hidden');
+  YTYA_UI_ELEMENTS.YTYA.classList.toggle('hidden');
+  BIRD_UI_ELEMENTS.PLAY_BUTTON.classList.remove('hidden');
+  BIRD_UI_ELEMENTS.PAUSE_BUTTON.classList.add('hidden');
+}
+
+function getAudioSrc() {
+  return `./assets/music/track${audioCount % 5}.mp3`;
 }

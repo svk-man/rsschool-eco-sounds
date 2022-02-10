@@ -1,5 +1,6 @@
 import { preloadImages } from "./images.js";
 import { playAudio, pauseAudio } from "./audio.js";
+import { setActiveNavLink } from "./navigation.js";
 import { startYtya } from "./ytya.js";
 
 preloadImages();
@@ -44,6 +45,7 @@ function changeBirdInfo(event) {
     birdPauseButton.classList.add('hidden');
     pauseAudio();
     main.style.backgroundImage = `url("./assets/img/${birdNameEn}-bg.jpg")`;
+    setActiveNavLink(navLink);
   }
 }
 
